@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Inc. — Profitability Decline Investigation | AI Business Analyst</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body class="apple-theme">
+    <!-- Header / Nav -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-group">
+                <div class="apple-logo"><i class="fa-brands fa-apple"></i></div>
+                <div class="brand-text">
+                    <h1>Apple Executive Decision Intelligence</h1>
+                    <span class="subtitle">Project - 13: Profitability Decline Investigation & Cross-Functional Root Cause Synthesis</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="badge badge-danger"><i class="fa-solid fa-triangle-exclamation"></i> 3 Consecutive Decline Quarters</span>
+                <span class="badge badge-warning"><i class="fa-solid fa-chart-line-down"></i> -912 bps Margin Contraction</span>
+                <a href="/download-report" class="btn btn-primary" download>
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF Report
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="dashboard-content">
+        <!-- Top KPI Metric Strip -->
+        <section class="kpi-strip">
+            <div class="kpi-card">
+                <div class="kpi-meta">
+                    <span class="kpi-title">Baseline Operating Margin</span>
+                    <i class="fa-solid fa-shield-check kpi-icon text-success"></i>
+                </div>
+                <div class="kpi-value text-success">31.46%</div>
+                <div class="kpi-subtext">Q4 2024 Pre-Crisis Benchmark</div>
+            </div>
+            <div class="kpi-card highlight-danger">
+                <div class="kpi-meta">
+                    <span class="kpi-title">Crisis Trough Margin</span>
+                    <i class="fa-solid fa-arrow-trend-down kpi-icon text-danger"></i>
+                </div>
+                <div class="kpi-value text-danger">22.34%</div>
+                <div class="kpi-subtext"><span class="badge-pill bg-danger-light text-danger">-912 bps</span> Consecutive Drop over Q1-Q3</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-meta">
+                    <span class="kpi-title">Annualized Profit Leakage</span>
+                    <i class="fa-solid fa-money-bill-transfer kpi-icon text-warning"></i>
+                </div>
+                <div class="kpi-value text-warning">$9.10 B</div>
+                <div class="kpi-subtext">Distributed across 4 Siloed Divisions</div>
+            </div>
+            <div class="kpi-card highlight-primary">
+                <div class="kpi-meta">
+                    <span class="kpi-title">AI Remediation Potential</span>
+                    <i class="fa-solid fa-wand-magic-sparkles kpi-icon text-primary"></i>
+                </div>
+                <div class="kpi-value text-primary">+788 bps</div>
+                <div class="kpi-subtext"><span class="badge-pill bg-primary-light text-primary">+$7.88B EBITDA</span> Payback: 2.8 Months</div>
+            </div>
+        </section>
+
+        <!-- Executive Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="tab-overview"><i class="fa-solid fa-gauge-high"></i> Executive Cockpit & The Silo Paradox</button>
+            <button class="tab-btn" data-tab="tab-transmission"><i class="fa-solid fa-diagram-project"></i> Cross-Functional Transmission Matrix</button>
+            <button class="tab-btn" data-tab="tab-departments"><i class="fa-solid fa-sitemap"></i> Departmental Deep Dive</button>
+            <button class="tab-btn" data-tab="tab-simulator"><i class="fa-solid fa-sliders"></i> Strategic What-If Simulator</button>
+            <button class="tab-btn" data-tab="tab-analyst"><i class="fa-solid fa-robot"></i> AI Business Analyst Terminal</button>
+            <button class="tab-btn" data-tab="tab-protocols"><i class="fa-solid fa-file-shield"></i> Prescriptive Board Protocols</button>
+        </nav>
+
+        <!-- TAB 1: EXECUTIVE COCKPIT & SILO PARADOX -->
+        <div id="tab-overview" class="tab-pane active">
+            <!-- Problem Banner -->
+            <div class="alert-box alert-warning-box">
+                <div class="alert-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                <div class="alert-text">
+                    <h4>The Silo Paradox Defined</h4>
+                    <p>
+                        Every individual department (Marketing, HR, Operations, and Finance) reported <strong>satisfactory / green metrics</strong> on their isolated dashboards. 
+                        Yet, aggregate corporate operating margin dropped consecutively from <strong>31.46% to 22.34%</strong>. 
+                        The AI Business Analyst diagnosed that individual departments achieved their local targets by exporting massive unbudgeted costs to adjacent functions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Two-Column Grid: Charts -->
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-chart-line"></i> 16-Quarter Operating Margin Trajectory</h3>
+                        <span class="card-badge">Q1 2022 – Q4 2025</span>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="trajectoryChart" height="220"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-waterfall"></i> Causal Profitability Waterfall (-912 bps)</h3>
+                        <span class="card-badge">Baseline vs Q3 Trough</span>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="waterfallChart" height="220"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Departmental Silo Paradox Cards Grid -->
+            <h3 class="section-title"><i class="fa-solid fa-boxes-stacked"></i> Departmental Silo vs Enterprise Reality Diagnostic</h3>
+            <div class="grid-4" id="siloCardsContainer">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+
+        <!-- TAB 2: CROSS-FUNCTIONAL TRANSMISSION MATRIX -->
+        <div id="tab-transmission" class="tab-pane">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-table-cells"></i> Inter-Departmental Correlation Matrix</h3>
+                        <span class="card-badge">Causal Transmission Contagion</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small">Demonstrates how Marketing promotional pushes correlate strongly (+0.88) with Operations Air Freight and HR Overtime spikes.</p>
+                        <div class="table-responsive">
+                            <table class="data-table" id="corrTable">
+                                <!-- Populated dynamically -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-timeline"></i> Time-Lagged Transmission Dynamics</h3>
+                        <span class="card-badge">T to T+3 Month Lags</span>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="lagChart" height="230"></canvas>
+                        <div class="callout callout-info">
+                            <strong>Key Causal Finding:</strong> A localized surge in Trade-In Subsidies at Month T creates an acute Freight Air Cargo surge at Month T+1 (correlation +0.84) as warehouse supply buffers deplete.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Econometric Elasticity Table -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-calculator"></i> Econometric Marginal Elasticity Profile (Machine Learning Attribution)</h3>
+                    <span class="card-badge">Random Forest & HistGradientBoosting Regression (R² = 0.94)</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="data-table" id="elasticityTable">
+                            <thead>
+                                <tr>
+                                    <th>Operational Indicator</th>
+                                    <th>Department</th>
+                                    <th>Baseline Unit</th>
+                                    <th>Marginal Shift (+1 Unit)</th>
+                                    <th>Operating Margin Impact</th>
+                                    <th>Annualized EBITDA Impact</th>
+                                    <th>Transmission Risk Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: DEPARTMENTAL DEEP DIVE -->
+        <div id="tab-departments" class="tab-pane">
+            <div class="dept-subnav">
+                <button class="dept-pill active" data-dept="Marketing"><i class="fa-solid fa-bullhorn"></i> Marketing</button>
+                <button class="dept-pill" data-dept="HR"><i class="fa-solid fa-users"></i> HR & People</button>
+                <button class="dept-pill" data-dept="Operations"><i class="fa-solid fa-truck-fast"></i> Operations & Logistics</button>
+                <button class="dept-pill" data-dept="Finance"><i class="fa-solid fa-chart-pie"></i> Finance & Treasury</button>
+            </div>
+            <div id="deptDetailContainer" class="mt-4">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+
+        <!-- TAB 4: STRATEGIC WHAT-IF SIMULATOR -->
+        <div id="tab-simulator" class="tab-pane">
+            <div class="grid-2">
+                <!-- Control Sliders -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-sliders"></i> Board Counterfactual Scenario Controls</h3>
+                        <button class="btn btn-secondary btn-sm" id="resetSlidersBtn"><i class="fa-solid fa-rotate-left"></i> Reset Defaults</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="sliderAirFreight">1. Operations: Air-to-Ocean Modal Shift</label>
+                                <span class="slider-val" id="valAirFreight">50%</span>
+                            </div>
+                            <input type="range" id="sliderAirFreight" min="0" max="80" value="50" step="5" class="range-slider">
+                            <span class="slider-help">Shifts expedited chartered Boeing 777 air shipments into containerized maritime cargo.</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="sliderContractors">2. HR: Silicon & AI Talent In-Sourcing</label>
+                                <span class="slider-val" id="valContractors">60%</span>
+                            </div>
+                            <input type="range" id="sliderContractors" min="0" max="85" value="60" step="5" class="range-slider">
+                            <span class="slider-help">In-sources 400 key silicon design roles, eliminating $350-$450/hr agency contractor markups.</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="sliderTradeIn">3. Marketing: Trade-In Subsidy Cap & Promo Balancing</label>
+                                <span class="slider-val" id="valTradeIn">50%</span>
+                            </div>
+                            <input type="range" id="sliderTradeIn" min="0" max="80" value="50" step="5" class="range-slider">
+                            <span class="slider-help">Caps flat trade-in subsidies and prioritizes high-margin Pro Max attach rates over base SKUs.</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="sliderDIO">4. Supply Chain: Lean Buffer Stock DIO Reduction</label>
+                                <span class="slider-val" id="valDIO">25 Days</span>
+                            </div>
+                            <input type="range" id="sliderDIO" min="0" max="32" value="25" step="1" class="range-slider">
+                            <span class="slider-help">Reduces Component Days Inventory Outstanding from 69.5 to 44.5 days, avoiding component write-downs.</span>
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <label for="sliderOvertime">5. Operations & HR: Assembly Shift Smoothing</label>
+                                <span class="slider-val" id="valOvertime">50%</span>
+                            </div>
+                            <input type="range" id="sliderOvertime" min="0" max="75" value="50" step="5" class="range-slider">
+                            <span class="slider-help">Reduces emergency overtime wages from 21.8% to 11% through predictive schedule leveling.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Output -->
+                <div class="card highlight-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-chart-simple"></i> Simulated Financial Recovery Output</h3>
+                        <span class="badge badge-success" id="simStatusBadge">Simulation Active</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="sim-metric-strip">
+                            <div class="sim-metric">
+                                <span class="label">Projected Margin</span>
+                                <span class="value text-success" id="simNewMargin">30.22%</span>
+                                <span class="delta" id="simMarginDelta">+788 bps</span>
+                            </div>
+                            <div class="sim-metric">
+                                <span class="label">Annual EBITDA Gain</span>
+                                <span class="value text-primary" id="simEbitdaGain">+$7.88 B</span>
+                                <span class="delta">Annualized Accretion</span>
+                            </div>
+                            <div class="sim-metric">
+                                <span class="label">Capital Investment</span>
+                                <span class="value" id="simCapex">$210.0 M</span>
+                                <span class="delta">Total Implementation</span>
+                            </div>
+                            <div class="sim-metric">
+                                <span class="label">Payback Period</span>
+                                <span class="value text-warning" id="simPayback">2.7 Mo</span>
+                                <span class="delta">Break-even Horizon</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h4>Recovery Contribution by Lever ($ Billions)</h4>
+                            <canvas id="simBreakdownChart" height="190"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: AI BUSINESS ANALYST TERMINAL -->
+        <div id="tab-analyst" class="tab-pane">
+            <div class="chat-terminal-container">
+                <div class="terminal-sidebar">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Preset Leadership Queries</h4>
+                    <button class="prompt-pill" data-query="Why has Apple profitability declined for three consecutive quarters despite satisfactory department reports?">
+                        <i class="fa-regular fa-circle-question"></i> Why did 3-quarter profitability decline?
+                    </button>
+                    <button class="prompt-pill" data-query="How did Marketing trade-in subsidies and low-margin SKU promos cause cost leakages downstream?">
+                        <i class="fa-regular fa-circle-question"></i> Marketing Subsidized Volume Paradox
+                    </button>
+                    <button class="prompt-pill" data-query="Why did HR report satisfactory turnover while engineering contractor costs exploded?">
+                        <i class="fa-regular fa-circle-question"></i> HR Silicon Brain Drain Analysis
+                    </button>
+                    <button class="prompt-pill" data-query="What is the heroic air freight trap in Operations that burned $2.45B in logistics?">
+                        <i class="fa-regular fa-circle-question"></i> Operations Expedited Air Freight Trap
+                    </button>
+                    <button class="prompt-pill" data-query="What are the 5 prescriptive board protocols to restore operating margin above 30%?">
+                        <i class="fa-regular fa-circle-question"></i> Recommend 5 Board Protocols & ROI
+                    </button>
+                </div>
+
+                <div class="terminal-main">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message system-message">
+                            <div class="avatar"><i class="fa-brands fa-apple"></i></div>
+                            <div class="msg-content">
+                                <strong>Apple AI Business Analyst Assistant:</strong>
+                                <p>Welcome, Executive Committee. I have synthesized telemetry across Marketing, HR, Operations, and Finance spanning 16 quarters. You can ask me any question regarding the consecutive 3-quarter profitability decline, inter-departmental transmission dynamics, or strategic recovery protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="chat-input-bar" id="chatForm">
+                        <input type="text" id="chatInput" placeholder="Ask the AI Business Analyst a question..." autocomplete="off">
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: PRESCRIPTIVE BOARD PROTOCOLS -->
+        <div id="tab-protocols" class="tab-pane">
+            <div class="protocols-header">
+                <div>
+                    <h2>5 Prescriptive Board Strategic Protocols (Alpha to Epsilon)</h2>
+                    <p class="text-muted">Directives designed to reverse the 3-quarter profitability decline, generating $7.88B in annualized EBITDA accretion against $235M in investment.</p>
+                </div>
+                <a href="/download-report" class="btn btn-primary btn-lg" download>
+                    <i class="fa-solid fa-file-arrow-down"></i> Download Full Executive PDF Report
+                </a>
+            </div>
+
+            <div class="grid-3 mt-4" id="protocolsContainer">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span>Apple Inc. Executive Decision Intelligence — Confidential</span>
+            </div>
+            <div class="footer-links">
+                <span>Port: 5013</span>
+                <span>•</span>
+                <span>AI Business Analyst Engine v2.4</span>
+                <span>•</span>
+                <a href="/download-report">Download PDF Report</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
+
